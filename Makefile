@@ -17,4 +17,4 @@ main1_2: main1_2.o lib_ariel.so
 	$(CC) -fPIC -c $< 
 
 clean: 
-	rm -f *.o *.so
+	rm -f *.o *.so main1_1 main1_2
