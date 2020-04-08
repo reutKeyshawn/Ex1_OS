@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "hello_Ariel.h"
+#include "hello_ariel.h"
 
 int main()
 {
