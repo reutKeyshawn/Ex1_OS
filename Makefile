@@ -1,18 +1,20 @@
 CC = gcc
-OBJECT_LIB = hello_Ariel.o 
-OBJECT_MAIN = main1_1.o
+HELLO_ARIEL_OBJ = hello_Ariel.o 
 
-program: main1_1.o hello_Ariel.o libAriel.so
-	$(CC) main1_1.o hello_Ariel.o -o program
+# program: main1_1.o hello_Ariel.o libAriel.so
+# 	$(CC) main1_1.o hello_Ariel.o -o program
 
-libAriel.so: $(OBJECT_LIB) hello_Ariel.h
-	$(CC) -shared -o libAriel.so $(OBJECT_LIB)
+lib_ariel.so: $(HELLO_ARIEL_OBJ)
+	$(CC) -shared -o $@ $^
 
-main1_1.o: main1_1.c hello_Ariel.h
-	$(CC) -c main1_1.c
+main1_1: $(HELLO_ARIEL_OBJ) main1_2.o
+	$(CC) -o $@ $^
 
-hello_Ariel.o: hello_Ariel.c hello_Ariel.h
-	$(CC) -c hello_Ariel.c
+main1_2: main1_2.o lib_ariel.so 
+	$(CC) -o $@ $^
+	
+%.o: %.c
+	$(CC) -fPIC -c $< 
 
 clean: 
-	rm -f *.o
+	rm -f *.o *.so
