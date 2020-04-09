@@ -5,7 +5,7 @@ all: main1_1 main1_2
 
 lib_ariel.so: $(HELLO_ARIEL_OBJ)
 	$(CC) -shared -o $@ $^
-
+	sudo cp $@ /usr/lib
 main1_1: $(HELLO_ARIEL_OBJ) main1_2.o
 	$(CC) -o $@ $^
 
