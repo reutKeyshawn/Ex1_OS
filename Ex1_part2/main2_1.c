@@ -16,10 +16,12 @@ int main()
         }
         else
         {
+	sleep(20);
             printf("\nHello you are in process 1, process number: %d\n" , getpid());
         }
     }
     else{
+	sleep(20);
         printf("\nThis is the app, process number: %d\n" , getpid());
 }
     return 0;
