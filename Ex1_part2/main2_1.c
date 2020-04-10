@@ -19,6 +19,8 @@ int main()
             printf("\nHello you are in process 1, process number: %d\n" , getpid());
         }
     }
-    else
+    else{
         printf("\nThis is the app, process number: %d\n" , getpid());
+}
+    return 0;
 }
